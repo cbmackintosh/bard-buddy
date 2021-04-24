@@ -23,11 +23,36 @@ export default class Play extends Component {
     .then(data => this.setState({ fullTitle: data }))
   }
 
+  compileDirectory() {
+    const directory = []
+    this.state.chapters.map(chapter => {
+      if (directory[chapter.act]) {
+        directory[chapter.act].push(chapter)
+      } else {
+        directory[chapter.act] = [chapter]
+      }
+    })
+    console.log(directory)
+    return directory.map(act => {
+      return (
+        <div>
+          {directory.indexOf(act) ? <h1>Act {directory.indexOf(act)}</h1> : <h1>Prologue</h1>}
+          {act.map(scene => {
+            return (
+              <button>scene {scene.scene}</button>
+            )
+          })}
+        </div>
+      )
+    })
+  }
+
   render() {
     console.log(this.state)
     return (
       <div className="play-body">
         <h1>{this.state.fullTitle}</h1>
+        {this.compileDirectory()}
       </div>
     )
   }
