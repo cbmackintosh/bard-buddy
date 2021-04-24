@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { getPlayData } from '../../api-calls'
 import PlayText from '../PlayText/PlayText'
 import { numToRoms } from '../../helper-functions'
+import CharacterList from '../CharacterList/CharacterList'
 
 export default class Play extends Component {
   constructor({ play }) {
@@ -9,7 +10,6 @@ export default class Play extends Component {
     this.state = {
       play: play,
       chapters: [],
-      characters: [],
       fullTitle: ''
     }
   }
@@ -21,8 +21,6 @@ export default class Play extends Component {
     getPlayData('chapters', this.state.play)
     .then(data => this.setState({ chapters: data }))
 
-    getPlayData('characters', this.state.play)
-    .then(data => this.setState({ characters: data }))
   }
 
   compileDirectory() {
@@ -49,10 +47,10 @@ export default class Play extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="play-body">
         <h1>{this.state.fullTitle}</h1>
+        <CharacterList play={this.state.play} />
         {this.compileDirectory()}
       </div>
     )

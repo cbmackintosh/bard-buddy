@@ -23,8 +23,8 @@ export default class PlayText extends Component {
     return this.state.text.map(graf => {
       return (
         <div>
-          <p><strong>{graf.charid}</strong></p>
-          {graf.plaintext.split('n[p]').map(line => {
+          {graf.charid === 'xxx' ? <p></p> : <p><strong>{graf.charid.toUpperCase()}</strong></p>}
+          {graf.plaintext.split(`n[p]`).map(line => {
             return <p>{line}</p>
           })}
         </div>
@@ -33,17 +33,16 @@ export default class PlayText extends Component {
   }
 
   render() {
-    console.log(this.state)
     if(!this.state.isExpanded) {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: true })}>Scene {numToRoms(this.state.scene)} +</button>
+          <button onClick={() => this.setState({ isExpanded: true })}>Scene {numToRoms(this.state.scene, true)} +</button>
         </div>
       )
     } else {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: false })}>Scene {numToRoms(this.state.scene)} -</button>
+          <button onClick={() => this.setState({ isExpanded: false })}>Scene {numToRoms(this.state.scene, true)} -</button>
           {this.grafCompiler()}
         </div>
       )
