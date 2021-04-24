@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getPlayData } from '../../api-calls'
+import PlayText from '../PlayText/PlayText'
 
 export default class Play extends Component {
   constructor({ play }) {
@@ -13,14 +14,14 @@ export default class Play extends Component {
   }
 
   componentDidMount() {
+    getPlayData('fullTitle', this.state.play)
+    .then(data => this.setState({ fullTitle: data }))
+
     getPlayData('chapters', this.state.play)
     .then(data => this.setState({ chapters: data }))
 
     getPlayData('characters', this.state.play)
     .then(data => this.setState({ characters: data }))
-
-    getPlayData('fullTitle', this.state.play)
-    .then(data => this.setState({ fullTitle: data }))
   }
 
   compileDirectory() {
@@ -38,7 +39,7 @@ export default class Play extends Component {
           {directory.indexOf(act) ? <h1>Act {this.numToRoms(directory.indexOf(act), false)}</h1> : <h1>Prologue</h1>}
           {act.map(scene => {
             return (
-              <button>Scene {this.numToRoms(scene.scene, true)}</button>
+              <PlayText play={this.state.play} act={directory.indexOf(act)} scene={scene.scene} />
             )
           })}
         </div>
