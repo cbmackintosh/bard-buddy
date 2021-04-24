@@ -32,19 +32,32 @@ export default class Play extends Component {
         directory[chapter.act] = [chapter]
       }
     })
-    console.log(directory)
     return directory.map(act => {
       return (
         <div>
-          {directory.indexOf(act) ? <h1>Act {directory.indexOf(act)}</h1> : <h1>Prologue</h1>}
+          {directory.indexOf(act) ? <h1>Act {this.numToRoms(directory.indexOf(act), false)}</h1> : <h1>Prologue</h1>}
           {act.map(scene => {
             return (
-              <button>scene {scene.scene}</button>
+              <button>Scene {this.numToRoms(scene.scene, true)}</button>
             )
           })}
         </div>
       )
     })
+  }
+
+  numToRoms = (num, isLowerCase) => {
+    const digits = num.toString().split("");
+    const key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM","","X","XX","XXX","XL","L","LX","LXX","LXXX","XC","","I","II","III","IV","V","VI","VII","VIII","IX"];
+    let romanNumerals = "";
+    for(var i = 2; i >= 0; i--) {
+        romanNumerals = (key[+digits.pop() + (i * 10)] || "") + romanNumerals;
+    }
+    if (isLowerCase) {
+      return romanNumerals.toLowerCase()
+    } else {
+      return romanNumerals
+    }
   }
 
   render() {
