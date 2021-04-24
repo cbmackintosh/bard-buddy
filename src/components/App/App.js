@@ -2,6 +2,7 @@
 import React from 'react';
 import { Route, NavLink, Switch } from 'react-router-dom';
 import Home from '../Home/Home';
+import Genre from '../Genre/Genre'
 
 const App = () => {
 
@@ -14,7 +15,7 @@ const App = () => {
       </nav>
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route path={['/tragedies', '/comedies', '/histories', 'sonnets']} />
+        <Route path={['/tragedies', '/comedies', '/histories']} render={({ match }) => <Genre genre={match.path} /> } />
         <Route path={['/tragedies/:play', 'comedies/:play', '/histoires/:play']} />
         <Route path='#' />
       </Switch>
