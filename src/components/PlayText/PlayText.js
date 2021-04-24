@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getScene } from '../../api-calls'
+import { numToRoms } from '../../helper-functions'
 
 export default class PlayText extends Component {
   constructor({ play, act, scene }) {
@@ -36,13 +37,13 @@ export default class PlayText extends Component {
     if(!this.state.isExpanded) {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: true })}>EXPAND</button>
+          <button onClick={() => this.setState({ isExpanded: true })}>Scene {numToRoms(this.state.scene)} +</button>
         </div>
       )
     } else {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: false })}>COLLAPSE</button>
+          <button onClick={() => this.setState({ isExpanded: false })}>Scene {numToRoms(this.state.scene)} -</button>
           {this.grafCompiler()}
         </div>
       )

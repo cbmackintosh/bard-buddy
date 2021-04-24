@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getPlayData } from '../../api-calls'
 import PlayText from '../PlayText/PlayText'
+import { numToRoms } from '../../helper-functions'
 
 export default class Play extends Component {
   constructor({ play }) {
@@ -36,7 +37,7 @@ export default class Play extends Component {
     return directory.map(act => {
       return (
         <div>
-          {directory.indexOf(act) ? <h1>Act {this.numToRoms(directory.indexOf(act), false)}</h1> : <h1>Prologue</h1>}
+          {directory.indexOf(act) ? <h1>Act {numToRoms(directory.indexOf(act), false)}</h1> : <h1>Prologue</h1>}
           {act.map(scene => {
             return (
               <PlayText play={this.state.play} act={directory.indexOf(act)} scene={scene.scene} />
@@ -45,20 +46,6 @@ export default class Play extends Component {
         </div>
       )
     })
-  }
-
-  numToRoms = (num, isLowerCase) => {
-    const digits = num.toString().split("");
-    const key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM","","X","XX","XXX","XL","L","LX","LXX","LXXX","XC","","I","II","III","IV","V","VI","VII","VIII","IX"];
-    let romanNumerals = "";
-    for(var i = 2; i >= 0; i--) {
-        romanNumerals = (key[+digits.pop() + (i * 10)] || "") + romanNumerals;
-    }
-    if (isLowerCase) {
-      return romanNumerals.toLowerCase()
-    } else {
-      return romanNumerals
-    }
   }
 
   render() {
