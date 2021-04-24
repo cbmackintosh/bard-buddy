@@ -6,13 +6,18 @@ export default class Play extends Component {
     super()
     this.state = {
       play: play,
-      chapters: []
+      chapters: [],
+      characters: [],
+      fullTitle: ''
     }
   }
 
   componentDidMount() {
     getPlayData('chapters', this.state.play)
     .then(data => this.setState({ chapters: data }))
+
+    getPlayData('characters', this.state.play)
+    .then(data => this.setState({ characters: data }))
   }
 
   render() {
