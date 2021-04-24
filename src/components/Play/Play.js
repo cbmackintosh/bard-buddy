@@ -18,13 +18,16 @@ export default class Play extends Component {
 
     getPlayData('characters', this.state.play)
     .then(data => this.setState({ characters: data }))
+
+    getPlayData('fullTitle', this.state.play)
+    .then(data => this.setState({ fullTitle: data }))
   }
 
   render() {
     console.log(this.state)
     return (
       <div className="play-body">
-        <h1>This is a play</h1>
+        <h1>{this.state.fullTitle}</h1>
       </div>
     )
   }
