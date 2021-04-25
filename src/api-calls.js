@@ -1,6 +1,30 @@
 
 const baseURL = `https://bard-buddy-api.herokuapp.com`
 
+export const fetchAllPoetry = () => {
+
+  const allSonnets = fetch(`${baseURL}/sonnets`)
+    .then(response => response.json())
+    .then(allSonnetData => {
+      return allSonnetData
+    })
+
+  const allPoems = fetch(`${baseURL}/poems`)
+    .then(response => response.json())
+    .then(allPoemData => {
+      return allPoemData
+    })
+
+  return Promise.all([allSonnets, allPoems])
+  .then(data => {
+    let poetryData = {}
+    poetryData.sonnets = data[0]
+    poetryData.poems = data[1]
+    return poetryData
+  })
+
+}
+
 export const fetchPlayData = (play) => {
 
   let fullText = fetch(`${baseURL}/play/${play}`)
