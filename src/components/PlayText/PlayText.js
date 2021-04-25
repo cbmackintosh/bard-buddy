@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { numToRoms } from '../../helper-functions'
+import PlayLine from '../PlayLine/PlayLine'
+import './PlayText.css'
 
 export default class PlayText extends Component {
   constructor({ act, scene, fullText, characters }) {
@@ -15,15 +17,12 @@ export default class PlayText extends Component {
 
   grafCompiler = () => {
     return this.state.text.map(graf => {
+      let counter = graf.paragraphnum
       return (
         <div key={graf.paragraphID}>
-          {graf.charid === 'xxx' ? <p></p> : <p><strong>{this.state.characters.find(character => character.charid === graf.charid).charname.toUpperCase()}</strong></p>}
+          {graf.charid === 'xxx' ? <p></p> : <p className='character'><strong>{this.state.characters.find(character => character.charid === graf.charid).charname.toUpperCase()}</strong></p>}
           {graf.plaintext.split('\\n[p]').map(line => {
-            if (graf.charid === 'xxx') {
-              return <i key={`${graf.paragraphID}-${graf.plaintext.split('\\n[p]').indexOf(line)}`}>{line.replace('\\n', '')}</i>
-            } else {
-              return <p key={`${graf.paragraphID}-${graf.plaintext.split('\\n[p]').indexOf(line)}`}>{line.replace('\\n', '')}</p>
-            }    
+            return <PlayLine text={line} lineNum={counter++} character={graf.charid} />
           })}
         </div>
       )
