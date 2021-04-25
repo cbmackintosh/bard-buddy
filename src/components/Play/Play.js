@@ -49,7 +49,7 @@ export default class Play extends Component {
     return (
       <div className="play-body">
         <h1>{this.state.fullTitle}</h1>
-        <CharacterList play={this.state.play} />
+        {this.state.characters.length && <CharacterList characters={this.state.characters} />}
         {this.compileDirectory()}
       </div>
     )

@@ -8,7 +8,7 @@ const Home = () => {
       <Link to='/histories'><button>HISTORIES</button></Link>
       <Link to='/tragedies'><button>TRAGEDIES</button></Link>
       <Link to='/comedies'><button>COMEDIES</button></Link>
-      <Link to='/sonnets'><button>SONNETS</button></Link>
+      <Link to='/sonnets'><button>SONNETS AND POEMS</button></Link>
     </div>
   )
 }

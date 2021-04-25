@@ -31,7 +31,6 @@ export default class PlayText extends Component {
   }
 
   render() {
-    console.log(this.state)
     if(!this.state.isExpanded) {
       return (
         <div>

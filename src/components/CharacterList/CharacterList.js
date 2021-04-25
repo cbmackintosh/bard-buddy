@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import { getPlayData } from '../../api-calls'
 
 export default class CharacterList extends Component {
-  constructor({ play }) {
+  constructor({ characters }) {
     super()
     this.state = {
-      play: play,
       isExpanded: false,
-      characters: []
+      characters: characters.sort((a, b) => b.speechcount - a.speechcount)
     }
   }
 
@@ -19,12 +17,8 @@ export default class CharacterList extends Component {
     })
   }
 
-  componentDidMount() {
-    getPlayData('characters', this.state.play)
-    .then(data => this.setState({ characters: data.sort((a, b) => b.speechcount - a.speechcount) }))
-  }
-
   render() {
+    console.log(this.state)
     if(!this.state.isExpanded) {
       return (
         <div>
