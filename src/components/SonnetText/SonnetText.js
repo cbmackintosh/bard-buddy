@@ -14,7 +14,7 @@ export default class SonnetText extends Component {
     const sonnet = this.state.sonnetText.split('\\n[p]')
     return this.formQuatrains(sonnet).map(line => {
       return (
-        <p>{line}</p>
+        <p>{line.replace('\\n', '')}</p>
       )
     })
   }
