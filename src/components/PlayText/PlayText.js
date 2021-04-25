@@ -16,13 +16,13 @@ export default class PlayText extends Component {
   grafCompiler() {
     return this.state.text.map(graf => {
       return (
-        <div>
+        <div key={graf.paragraphID}>
           {graf.charid === 'xxx' ? <p></p> : <p><strong>{this.state.characters.find(character => character.charid === graf.charid).charname.toUpperCase()}</strong></p>}
           {graf.plaintext.split('\\n[p]').map(line => {
             if (graf.charid === 'xxx') {
-              return <i>{line.replace('\\n', '')}</i>
+              return <i key={`${graf.paragraphID}-${graf.plaintext.split('\\n[p]').indexOf(line)}`}>{line.replace('\\n', '')}</i>
             } else {
-              return <p>{line.replace('\\n', '')}</p>
+              return <p key={`${graf.paragraphID}-${graf.plaintext.split('\\n[p]').indexOf(line)}`}>{line.replace('\\n', '')}</p>
             }    
           })}
         </div>

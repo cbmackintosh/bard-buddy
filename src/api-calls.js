@@ -62,3 +62,8 @@ export const fetchPlayData = (play) => {
   })
 
 }
+
+export const getFullTitle = (work) => {
+  return fetch(`http://bard-buddy-api.herokuapp.com/fullTitle/${work}`)
+  .then(response => response.json())
+}

@@ -11,10 +11,12 @@ export default class SonnetText extends Component {
   }
 
   sonnetCompiler() {
-    const sonnet = this.state.sonnetText.split('\\n[p]')
-    return this.formQuatrains(sonnet).map(line => {
+    const sonnet = this.formQuatrains(this.state.sonnetText.split('\\n[p]'))
+    let lineKey = 0
+    return sonnet.map(line => {
+      lineKey++
       return (
-        <p>{line}</p>
+        <p key={lineKey}>{line.replace('\\n', '')}</p>
       )
     })
   }
@@ -41,7 +43,7 @@ export default class SonnetText extends Component {
       return (
         <div>
           <button onClick={() => this.setState({ isExpanded: false })}>Sonnet #{this.state.number} -</button>
-          <p>{this.sonnetCompiler()}</p>
+          {this.sonnetCompiler()}
         </div>
       )
     }
