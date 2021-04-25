@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getPlayData } from '../../api-calls'
+import { fetchPlayData } from '../../api-calls'
 import PlayText from '../PlayText/PlayText'
 import { numToRoms } from '../../helper-functions'
 import CharacterList from '../CharacterList/CharacterList'
@@ -10,17 +10,15 @@ export default class Play extends Component {
     this.state = {
       play: play,
       chapters: [],
-      fullTitle: ''
+      fullTitle: '',
+      characters: [],
+      text: null
     }
   }
 
   componentDidMount() {
-    getPlayData('fullTitle', this.state.play)
-    .then(data => this.setState({ fullTitle: data }))
-
-    getPlayData('chapters', this.state.play)
-    .then(data => this.setState({ chapters: data }))
-
+    fetchPlayData(this.state.play)
+    .then(data => this.setState({ characters: data.allCharacters, chapters: data.allChapters, fullTitle: data.fullTitle, text: data.fullText }))
   }
 
   compileDirectory() {
@@ -38,7 +36,7 @@ export default class Play extends Component {
           {directory.indexOf(act) ? <h1>Act {numToRoms(directory.indexOf(act), false)}</h1> : <h1>Prologue</h1>}
           {act.map(scene => {
             return (
-              <PlayText play={this.state.play} act={directory.indexOf(act)} scene={scene.scene} />
+              <PlayText act={directory.indexOf(act)} scene={scene.scene} fullText={this.state.text} characters={this.state.characters} />
             )
           })}
         </div>
@@ -47,6 +45,7 @@ export default class Play extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="play-body">
         <h1>{this.state.fullTitle}</h1>
