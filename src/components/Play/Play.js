@@ -16,12 +16,12 @@ export default class Play extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     fetchPlayData(this.state.play)
     .then(data => this.setState({ characters: data.allCharacters, chapters: data.allChapters, fullTitle: data.fullTitle, text: data.fullText }))
   }
 
-  compileDirectory() {
+  compileDirectory = () => {
     const directory = []
     this.state.chapters.map(chapter => {
       if (directory[chapter.act]) {
@@ -44,7 +44,7 @@ export default class Play extends Component {
     })
   }
 
-  render() {
+  render = () => {
     return (
       <div className="play-body">
         <h1>{this.state.fullTitle}</h1>

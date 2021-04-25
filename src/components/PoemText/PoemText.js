@@ -10,7 +10,7 @@ export default class PoemText extends Component {
     }
   }
 
-  poemFormatter() {
+  poemFormatter = () => {
     return this.state.poemText.map(stanza => {
       const stanzaArray = stanza.plaintext.split('\\n[p]')
       stanzaArray.push('-')
@@ -24,7 +24,7 @@ export default class PoemText extends Component {
     })
   }
 
-  render() {
+  render = () => {
     if (!this.state.isExpanded) {
       return (
         <div>

@@ -9,7 +9,7 @@ export default class CharacterList extends Component {
     }
   }
 
-  compileCharacterList() {
+  compileCharacterList = () => {
     return this.state.characters.map(character => {
       return (
         <p key={character.charid}><strong>{character.charname}</strong>{character.descrip.length ? `- ${character.descrip}` : null}</p>
@@ -17,7 +17,7 @@ export default class CharacterList extends Component {
     })
   }
 
-  render() {
+  render = () => {
     if(!this.state.isExpanded) {
       return (
         <div>

@@ -13,7 +13,7 @@ export default class PlayText extends Component {
     }
   }
 
-  grafCompiler() {
+  grafCompiler = () => {
     return this.state.text.map(graf => {
       return (
         <div key={graf.paragraphID}>
@@ -30,7 +30,7 @@ export default class PlayText extends Component {
     })
   }
 
-  render() {
+  render = () => {
     if(!this.state.isExpanded) {
       return (
         <div>
