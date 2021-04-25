@@ -30,7 +30,7 @@ const Genre = ({ genre }) => {
       <h1>{genreHeader}</h1>
       {state.map(el => {
         let url=`/${el.genre}/${el.playTitle}`
-        return <Link to={url}><button>{el.fullTitle}</button></Link>
+        return <Link to={url} key={`play=${el.playTitle}`}><button>{el.fullTitle}</button></Link>
       })}
     </div>
   )

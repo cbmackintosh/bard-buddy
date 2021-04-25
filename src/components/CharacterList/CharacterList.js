@@ -12,13 +12,12 @@ export default class CharacterList extends Component {
   compileCharacterList() {
     return this.state.characters.map(character => {
       return (
-        <p><strong>{character.charname}</strong>{character.descrip.length ? `- ${character.descrip}` : null}</p>
+        <p key={character.charid}><strong>{character.charname}</strong>{character.descrip.length ? `- ${character.descrip}` : null}</p>
       )
     })
   }
 
   render() {
-    console.log(this.state)
     if(!this.state.isExpanded) {
       return (
         <div>

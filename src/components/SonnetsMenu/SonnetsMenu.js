@@ -20,25 +20,14 @@ export default class SonnetsMenu extends Component {
   compileSonnetDirectory() {
     return this.state.sonnets.map(sonnet => {
       return (
-        <div>
+        <div key={`sonnet${sonnet.chapter}`}>
           <SonnetText sonnetText={sonnet.plaintext} sonnetNumber={sonnet.chapter} />
         </div>
       )
     })
   }
 
-  compilePoemsDirectory() {
-    return this.state.poems.map(poem => {
-      return (
-        <div>
-          <PoemText poem={poem.title} poemText={poem.plaintext} />
-        </div>
-      )
-    })
-  }
-
   render() {
-    console.log(this.state)
     return (
       <div>
         <h2>Sonnets</h2>

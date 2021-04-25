@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { getFullTitle } from '../../api-calls' 
 
 export default class PoemText extends Component {
   constructor({ fullTitle, poemText }) {
@@ -26,7 +25,6 @@ export default class PoemText extends Component {
   }
 
   render() {
-    console.log(this.state)
     if (!this.state.isExpanded) {
       return (
         <div>
