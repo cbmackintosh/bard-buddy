@@ -5,6 +5,7 @@ import Home from '../Home/Home';
 import Genre from '../Genre/Genre';
 import Play from '../Play/Play';
 import SonnetsMenu from '../SonnetsMenu/SonnetsMenu'
+import SavedPassages from '../SavedPassages/SavedPassages'
 
 const App = () => {
 
@@ -13,13 +14,14 @@ const App = () => {
       <h1>BARD BUDDY</h1>
       <nav>
         <NavLink to='/'>HOME</NavLink>
-        <NavLink to='/'>SAVED PASSAGES</NavLink>
+        <NavLink to='/saved-passages'>SAVED PASSAGES</NavLink>
       </nav>
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path={['/tragedies', '/comedies', '/histories']} render={({ match }) => <Genre genre={match.path} /> } />
         <Route path={['/tragedies/:play', '/comedies/:play', '/histories/:play']} render={({ match }) => <Play play={match.params.play} /> } />
         <Route path='/sonnets' render={() => <SonnetsMenu /> } />
+        <Route path='/saved-passages' render={() => <SavedPassages /> } />
         <Route path='*' />
       </Switch>
     </main>
