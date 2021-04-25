@@ -19,7 +19,11 @@ export default class PlayText extends Component {
         <div>
           {graf.charid === 'xxx' ? <p></p> : <p><strong>{this.state.characters.find(character => character.charid === graf.charid).charname.toUpperCase()}</strong></p>}
           {graf.plaintext.split('\\n[p]').map(line => {
-            return <p>{line.replace('\\n', '')}</p>
+            if (graf.charid === 'xxx') {
+              return <i>{line.replace('\\n', '')}</i>
+            } else {
+              return <p>{line.replace('\\n', '')}</p>
+            }    
           })}
         </div>
       )
