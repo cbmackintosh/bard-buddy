@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import PlayLine from '../PlayLine/PlayLine'
 
 export default class PoemText extends Component {
-  constructor({ fullTitle, poemText }) {
+  constructor({ poem, fullTitle, poemText }) {
     super()
     this.state = {
       isExpanded: false,
+      poem: poem,
       fullTitle: fullTitle,
       poemText: poemText
     }
@@ -12,14 +14,12 @@ export default class PoemText extends Component {
 
   poemFormatter = () => {
     return this.state.poemText.map(stanza => {
+      let lineCounter = stanza.paragraphnum - 1
       const stanzaArray = stanza.plaintext.split('\\n[p]')
       stanzaArray.push('-')
       return stanzaArray.map(line => {
-        return (
-          <div>
-            <p>{line.replace('\\n', '')}</p>
-          </div>
-        )
+        if (line !== '-') lineCounter++
+        return <PlayLine play={this.state.poem} text={line} lineNum={lineCounter} character={'shakespeare'} act={0} scene={0} fullTitle={this.state.fullTitle}/>
       })
     })
   }

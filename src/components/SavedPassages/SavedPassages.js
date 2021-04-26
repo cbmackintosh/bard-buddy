@@ -43,13 +43,27 @@ export default class SavedPassages extends Component {
     return this.returnPassageGroupings().map(group => {
       return (
         <div>
-          <h2>{group[0].fullTitle}: Act {numToRoms(group[0].act)}, scene {numToRoms(group[0].scene, true)}, lines {group[0].lineNum}-{group[group.length - 1].lineNum}</h2>
+          <h2>{this.compilePassageHeader(group[0].fullTitle, group[0].act, group[0].scene, group[0].lineNum, group[group.length - 1].lineNum)}</h2>
           {group.map(line => {
             return <PlayLine play={line.play} text={line.text} lineNum={line.lineNum} character={line.character} act={line.act} scene={line.scene} fullTitle={line.fullTitle} />
           })}
         </div>
       )
     })
+  }
+
+  compilePassageHeader(fullTitle, act, scene, firstLine, secondLine) {
+    let lines = ''
+    if (firstLine === secondLine) {
+      lines = `line ${firstLine}`
+    } else {
+      lines = `lines ${firstLine}-${secondLine}`
+    }
+    if (!act || !scene) {
+      return `${fullTitle}: ${lines}`
+    } else {
+      return `${fullTitle}: Act ${numToRoms(act)}, scene ${numToRoms(scene, true)}, ${lines}`
+    }
   }
 
   render() {

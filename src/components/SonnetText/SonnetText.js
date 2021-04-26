@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PlayLine from '../PlayLine/PlayLine'
 
 export default class SonnetText extends Component {
   constructor({ sonnetText, sonnetNumber }) {
@@ -12,12 +13,10 @@ export default class SonnetText extends Component {
 
   sonnetCompiler = () => {
     const sonnet = this.formQuatrains(this.state.sonnetText.split('\\n[p]'))
-    let lineKey = 0
+    let lineNum = 0
     return sonnet.map(line => {
-      lineKey++
-      return (
-        <p key={lineKey}>{line.replace('\\n', '')}</p>
-      )
+      if (line !== '-') lineNum ++
+      return <PlayLine play={`sonnet${this.state.number}`} text={line} lineNum={lineNum} character={'shakespeare'} act={0} scene={0} fullTitle={`Sonnet #${this.state.number}`} />
     })
   }
 
