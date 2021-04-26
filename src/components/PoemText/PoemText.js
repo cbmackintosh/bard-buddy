@@ -28,13 +28,13 @@ export default class PoemText extends Component {
     if (!this.state.isExpanded) {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: true })}>{this.state.fullTitle} +</button>
+          <button onClick={() => this.setState({ isExpanded: true })}>{this.state.fullTitle} ▽</button>
         </div>
       )
     } else {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: false })}>{this.state.fullTitle} -</button>
+          <button onClick={() => this.setState({ isExpanded: false })}>{this.state.fullTitle} △</button>
           {this.poemFormatter()}
         </div>
       )

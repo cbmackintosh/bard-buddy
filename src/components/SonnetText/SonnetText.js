@@ -35,13 +35,13 @@ export default class SonnetText extends Component {
     if (!this.state.isExpanded) {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: true })}>Sonnet #{this.state.number} +</button>
+          <button onClick={() => this.setState({ isExpanded: true })}>Sonnet #{this.state.number} ▽</button>
         </div>
       )
     } else {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: false })}>Sonnet #{this.state.number} -</button>
+          <button onClick={() => this.setState({ isExpanded: false })}>Sonnet #{this.state.number} △</button>
           {this.sonnetCompiler()}
         </div>
       )

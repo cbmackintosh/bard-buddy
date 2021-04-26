@@ -67,3 +67,8 @@ export const getFullTitle = (work) => {
   return fetch(`http://bard-buddy-api.herokuapp.com/fullTitle/${work}`)
   .then(response => response.json())
 }
+
+export const getRandomQuote = () => {
+  return fetch('https://shakespeare-quotes-gen.herokuapp.com/api/v1/quotes/single')
+  .then(response => response.json())
+}

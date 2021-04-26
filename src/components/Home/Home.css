@@ -1,0 +1,16 @@
+.home-menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-button {
+  background-color: transparent;
+  border: 1px solid black;
+  height: 150px;
+  width: 150px;
+  border-radius: 20px;
+}
+
+.home-button:hover {
+  background-color: cyan;
+}
