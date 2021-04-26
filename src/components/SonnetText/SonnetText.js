@@ -10,7 +10,7 @@ export default class SonnetText extends Component {
     }
   }
 
-  sonnetCompiler() {
+  sonnetCompiler = () => {
     const sonnet = this.formQuatrains(this.state.sonnetText.split('\\n[p]'))
     let lineKey = 0
     return sonnet.map(line => {
@@ -21,7 +21,7 @@ export default class SonnetText extends Component {
     })
   }
 
-  formQuatrains(sonnet) {
+  formQuatrains = (sonnet) => {
     let quatrain1 = sonnet.slice(0, 4)
     quatrain1.push('-')
     let quatrain2 = sonnet.slice(4, 8)
@@ -32,7 +32,7 @@ export default class SonnetText extends Component {
     return quatrain1.concat(quatrain2).concat(quatrain3).concat(couplet)
   }
 
-  render() {
+  render = () => {
     if (!this.state.isExpanded) {
       return (
         <div>

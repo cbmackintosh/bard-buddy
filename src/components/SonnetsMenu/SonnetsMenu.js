@@ -12,7 +12,7 @@ export default class SonnetsMenu extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     fetchAllPoetry()
     .then(data => this.setState({ sonnets: data.sonnets.sort((a, b) => a.chapter - b.chapter), poems: data.poems }))
   }
@@ -27,7 +27,7 @@ export default class SonnetsMenu extends Component {
     })
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         <h2>Sonnets</h2>
