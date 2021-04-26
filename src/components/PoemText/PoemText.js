@@ -19,7 +19,7 @@ export default class PoemText extends Component {
       stanzaArray.push('-')
       return stanzaArray.map(line => {
         if (line !== '-') lineCounter++
-        return <PlayLine play={this.state.poem} text={line} lineNum={lineCounter} character={'shakespeare'} act={0} scene={0} fullTitle={this.state.fullTitle}/>
+        return <PlayLine play={this.state.poem} text={line} lineNum={lineCounter} character={'shakespeare'} act={0} scene={0} fullTitle={this.state.fullTitle} key={`${line}-${lineCounter}`}/>
       })
     })
   }

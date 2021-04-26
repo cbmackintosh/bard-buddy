@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Genre.css'
+import Error from '../Error/Error'
 
 const Genre = ({ genre }) => {
 
@@ -24,11 +25,12 @@ const Genre = ({ genre }) => {
 
   useEffect(() => {
     getPlaysByGenre()
-  }, [])
+  })
 
   return (
     <div className='genre-body'>
       <h1>{genreHeader}</h1>
+      {error && <Error />}
       <div className='genre-works'>
         {state.map(el => {
           let url=`/${el.genre}/${el.playTitle}`

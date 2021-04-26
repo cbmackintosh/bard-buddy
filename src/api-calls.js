@@ -4,13 +4,13 @@ const baseURL = `https://bard-buddy-api.herokuapp.com`
 export const fetchAllPoetry = () => {
 
   const allSonnets = fetch(`${baseURL}/sonnets`)
-    .then(response => response.json())
+    .then(checkForErrors)
     .then(allSonnetData => {
       return allSonnetData
     })
 
   const allPoems = fetch(`${baseURL}/poems`)
-    .then(response => response.json())
+    .then(checkForErrors)
     .then(allPoemData => {
       return allPoemData
     })
@@ -28,25 +28,26 @@ export const fetchAllPoetry = () => {
 export const fetchPlayData = (play) => {
 
   let fullText = fetch(`${baseURL}/play/${play}`)
-    .then(response => response.json())
+    .then(checkForErrors)
     .then(fullTextData => {
       return fullTextData
     })
 
   let allCharacters = fetch(`${baseURL}/characters/${play}`)
-    .then(response => response.json())
+    .then(checkForErrors)
     .then(allCharacterData => {
       return allCharacterData
     })
 
   let fullTitle = fetch(`${baseURL}/fullTitle/${play}`)
-    .then(response => response.json())
+    .then(checkForErrors)
     .then(fullPlayTitle => {
       return fullPlayTitle
     })
 
+
   let allChapters = fetch(`${baseURL}/chapters/${play}`)
-    .then(response => response.json())
+    .then(checkForErrors)
     .then(allPlayChapters => {
       return allPlayChapters
     })
@@ -61,6 +62,14 @@ export const fetchPlayData = (play) => {
     return playData;
   })
 
+}
+
+const checkForErrors = (response) => {
+  if(!response.ok) {
+    throw new Error(response.status)
+  } else {
+    return response.json()
+  }
 }
 
 export const getFullTitle = (work) => {

@@ -43,10 +43,11 @@ export default class SavedPassages extends Component {
   compileSavedPassages() {
     return this.returnPassageGroupings().map(group => {
       return (
-        <div className='saved-passage'>
+        <div className='saved-passage' key={`${group[0].play}-${group[0].lineNum}-${group[group.length - 1].lineNum}`}>
           <h3>{this.compilePassageHeader(group[0].fullTitle, group[0].act, group[0].scene, group[0].lineNum, group[group.length - 1].lineNum)}</h3>
           {group.map(line => {
-            return <PlayLine play={line.play} text={line.text} lineNum={line.lineNum} character={line.character} act={line.act} scene={line.scene} fullTitle={line.fullTitle} />
+            let keyString = `${line.play}-${line.lineNum}`
+            return <PlayLine key={keyString} play={line.play} text={line.text} lineNum={line.lineNum} character={line.character} act={line.act} scene={line.scene} fullTitle={line.fullTitle} />
           })}
         </div>
       )
@@ -68,7 +69,6 @@ export default class SavedPassages extends Component {
   }
 
   render() {
-    console.log(this.state)
     if (!this.state.savedPassages.length) {
       return (
         <div>

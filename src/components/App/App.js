@@ -7,6 +7,7 @@ import Play from '../Play/Play';
 import SonnetsMenu from '../SonnetsMenu/SonnetsMenu'
 import SavedPassages from '../SavedPassages/SavedPassages'
 import './App.css'
+import Error from '../Error/Error'
 
 const App = () => {
 
@@ -19,12 +20,12 @@ const App = () => {
         <NavLink to='/saved-passages' className='navlink'>SAVED PASSAGES</NavLink>
       </nav>
       <Switch>
-        <Route exact path='/' component={Home}/>
+        <Route exact path='/' component={Home} />
         <Route exact path={['/tragedies', '/comedies', '/histories']} render={({ match }) => <Genre genre={match.path} /> } />
         <Route path={['/tragedies/:play', '/comedies/:play', '/histories/:play']} render={({ match }) => <Play play={match.params.play} /> } />
         <Route path='/sonnets' render={() => <SonnetsMenu /> } />
         <Route path='/saved-passages' render={() => <SavedPassages /> } />
-        <Route path='*' />
+        <Route path='*' render={() => <Error error={400} /> } />
       </Switch>
     </main>
   )
