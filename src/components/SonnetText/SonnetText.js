@@ -16,7 +16,7 @@ export default class SonnetText extends Component {
     let lineNum = 0
     return sonnet.map(line => {
       if (line !== '-') lineNum ++
-      return <PlayLine play={`sonnet${this.state.number}`} text={line} lineNum={lineNum} character={'shakespeare'} act={0} scene={0} fullTitle={`Sonnet #${this.state.number}`} />
+      return <PlayLine play={`sonnet${this.state.number}`} text={line} lineNum={lineNum} character={'shakespeare'} act={0} scene={0} fullTitle={`Sonnet #${this.state.number}`} key={line + lineNum} />
     })
   }
 

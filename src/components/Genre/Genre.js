@@ -25,7 +25,7 @@ const Genre = ({ genre }) => {
 
   useEffect(() => {
     getPlaysByGenre()
-  }, [])
+  })
 
   return (
     <div className='genre-body'>

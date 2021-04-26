@@ -24,7 +24,7 @@ export default class PlayText extends Component {
         <div key={graf.paragraphID}>
           {graf.charid === 'xxx' ? <p></p> : <p className='character'><strong>{this.state.characters.find(character => character.charid === graf.charid).charname.toUpperCase()}</strong></p>}
           {graf.plaintext.split('\\n[p]').map(line => {
-            return <PlayLine play={this.state.play} text={line} lineNum={counter++} character={graf.charid} act={this.state.act} scene={this.state.scene} fullTitle={this.state.fullTitle}/>
+            return <PlayLine play={this.state.play} text={line} lineNum={counter++} character={graf.charid} act={this.state.act} scene={this.state.scene} fullTitle={this.state.fullTitle} key={line} />
           })}
         </div>
       )

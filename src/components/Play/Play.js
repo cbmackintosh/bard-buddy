@@ -26,7 +26,7 @@ export default class Play extends Component {
 
   compileDirectory = () => {
     const directory = []
-    this.state.chapters.map(chapter => {
+    this.state.chapters.forEach(chapter => {
       if (directory[chapter.act]) {
         directory[chapter.act].push(chapter)
       } else {
