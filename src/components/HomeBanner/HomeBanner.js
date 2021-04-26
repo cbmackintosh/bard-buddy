@@ -21,7 +21,7 @@ export default class HomeBanner extends Component {
     return (
       <div className='top-banner'>
         <div className='quote-container'>
-          <p>"{this.state.quote}"</p>
+          <p>{this.state.quote}</p>
           <p>{this.state.play}</p>
         </div>
         <img className='portrait' src={shakespeare} alt='portrait of William Shakespeare'/>
