@@ -69,7 +69,6 @@ export default class SavedPassages extends Component {
   }
 
   render() {
-    console.log(this.state)
     if (!this.state.savedPassages.length) {
       return (
         <div>
