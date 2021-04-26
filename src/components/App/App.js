@@ -6,12 +6,13 @@ import Genre from '../Genre/Genre';
 import Play from '../Play/Play';
 import SonnetsMenu from '../SonnetsMenu/SonnetsMenu'
 import SavedPassages from '../SavedPassages/SavedPassages'
+import './App.css'
 
 const App = () => {
 
   return (
     <main className='app'>
-      <h1>BARD BUDDY</h1>
+      <h1 className='site-header'>Bard Buddy</h1>
       <nav>
         <NavLink to='/'>HOME</NavLink>
         <NavLink to='/saved-passages'>SAVED PASSAGES</NavLink>
