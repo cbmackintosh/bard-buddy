@@ -33,7 +33,7 @@ export default class Play extends Component {
     return directory.map(act => {
       return (
         <div key={`${this.state.play}-act${directory.indexOf(act)}`}>
-          {directory.indexOf(act) ? <h1>Act {numToRoms(directory.indexOf(act), false)}</h1> : <h1>Prologue</h1>}
+          {directory.indexOf(act) ? <h2>Act {numToRoms(directory.indexOf(act), false)}</h2> : <h2>Prologue</h2>}
           {act.map(scene => {
             return (
               <PlayText play={this.state.play} act={directory.indexOf(act)} scene={scene.scene} fullText={this.state.text} characters={this.state.characters} fullTitle={this.state.fullTitle} key={`${this.state.play}-act${directory.indexOf(act)}-scene${scene.scene}`} />

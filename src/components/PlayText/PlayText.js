@@ -35,13 +35,13 @@ export default class PlayText extends Component {
     if(!this.state.isExpanded) {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: true })}>Scene {numToRoms(this.state.scene, true)} +</button>
+          <button onClick={() => this.setState({ isExpanded: true })}>Scene {numToRoms(this.state.scene, true)} ▽</button>
         </div>
       )
     } else {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: false })}>Scene {numToRoms(this.state.scene, true)} -</button>
+          <button onClick={() => this.setState({ isExpanded: false })}>Scene {numToRoms(this.state.scene, true)} △</button>
           {this.grafCompiler()}
         </div>
       )

@@ -21,13 +21,13 @@ export default class CharacterList extends Component {
     if(!this.state.isExpanded) {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: true })}>Character List +</button>
+          <button onClick={() => this.setState({ isExpanded: true })}>Character List ▽</button>
         </div>
       )
     } else {
       return (
         <div>
-          <button onClick={() => this.setState({ isExpanded: false })}>Character List -</button>
+          <button onClick={() => this.setState({ isExpanded: false })}>Character List △</button>
           {this.compileCharacterList()}
         </div>
       )
