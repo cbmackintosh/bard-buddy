@@ -7,8 +7,13 @@
 
 Bard Buddy is a study tool for high school and undergraduate students studying Shakespeare. The app organizes and displays the complete works of William Shakespeare, including Sonnets and Poems. From the home page, the user is greeted with a portrait of Shakespeare as well as a randomly selected quote from one of his plays, generated using the <a href="https://documenter.getpostman.com/view/13762589/TVmS6Zyj">Shakespeare Quotes API.</a> From here the user can explore Shakespeare's work via one of the four major genre buttons at the bottom of the page: histories, comedies, tragedies and poetry.
 
+<img width="1431" alt="Screen Shot 2021-04-26 at 3 47 30 PM" src="https://user-images.githubusercontent.com/72054706/116155110-e6afe080-a6a6-11eb-93ca-42c91e06b10c.png">
 
 Furthermore, users are able to click on individual lines of any work to highlight them, which will then save the selected passage to the Saved Passages section for later reference. Lines can be un-highlighted and unsaved by clicking on them again.
+
+<img width="1435" alt="Screen Shot 2021-04-26 at 3 47 49 PM" src="https://user-images.githubusercontent.com/72054706/116155177-fd563780-a6a6-11eb-9136-df7d3e66b6d5.png">
+
+<img width="1434" alt="Screen Shot 2021-04-26 at 3 47 59 PM" src="https://user-images.githubusercontent.com/72054706/116155221-0b0bbd00-a6a7-11eb-94ab-45e96f81c6d3.png">
 
 The App was built with React and consumes an Express API which I built specifically for the project. Originally I had planned to use the Folger Shakespeare Library's free public API, but due to an outage on their site lasting several days I was forced to seek alternatives in order to meet the deadline for this project. I found a downloadable database containing all of Shakespeare's work at the <a href="https://www.opensourceshakespeare.org/downloads/">Open Source Shakespeare</a> website, which I then converted from SQL to JavaScript using postGres to facilitate app deployment on Heroku. The Bard Buddy API repo can be found here:
 https://github.com/cbmackintosh/BardBuddy-API
