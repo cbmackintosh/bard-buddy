@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './PlayLine.css'
+import PropTypes from 'prop-types'
 
 export default class PlayLine extends Component {
   constructor({ play, text, lineNum, character, act, scene, fullTitle }) {
@@ -69,4 +70,15 @@ export default class PlayLine extends Component {
     }
   }
 
+}
+
+PlayLine.propTypes = {
+  play: PropTypes.string,
+  text: PropTypes.string,
+  lineNum: PropTypes.number,
+  character: PropTypes.string,
+  isSaved: PropTypes.bool,
+  act: PropTypes.number,
+  scene: PropTypes.number,
+  fullTitle: PropTypes.string
 }

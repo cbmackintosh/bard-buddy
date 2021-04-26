@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PlayLine from '../PlayLine/PlayLine'
+import PropTypes from 'prop-types'
 
 export default class SonnetText extends Component {
   constructor({ sonnetText, sonnetNumber }) {
@@ -47,4 +48,10 @@ export default class SonnetText extends Component {
       )
     }
   }
+}
+
+SonnetText.propTypes = {
+  isExpanded: PropTypes.bool,
+  number: PropTypes.number,
+  sonnetText: PropTypes.string
 }

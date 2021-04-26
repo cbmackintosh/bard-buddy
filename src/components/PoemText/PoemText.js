@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PlayLine from '../PlayLine/PlayLine'
+import PropTypes from 'prop-types'
 
 export default class PoemText extends Component {
   constructor({ poem, fullTitle, poemText }) {
@@ -40,4 +41,11 @@ export default class PoemText extends Component {
       )
     }
   }
+}
+
+PoemText.propTypes = {
+  isExpanded: PropTypes.bool,
+  poem: PropTypes.string,
+  fullTitle: PropTypes.string,
+  poemText: PropTypes.array
 }
