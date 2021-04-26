@@ -31,3 +31,7 @@ https://github.com/cbmackintosh/BardBuddy-API
 * ![Node](https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white)
 
 ## Future iterations:
+
+- Expand the saved passages functionality to incorporate note-taking, adding tags to denote literary devices, etc.
+- Implement a search bar from the home page to quickly find specific terms in the entire database.
+- Improve passage deletion functionality on the saved passages display.
