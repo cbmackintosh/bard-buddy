@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Genre.css'
 import Error from '../Error/Error'
+import PropTypes from 'prop-types'
 
 const Genre = ({ genre }) => {
 
@@ -43,3 +44,7 @@ const Genre = ({ genre }) => {
 }
 
 export default Genre;
+
+Genre.propTypes = {
+  genre: PropTypes.string
+}

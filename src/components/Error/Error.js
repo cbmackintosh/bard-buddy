@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Error.css'
+import PropTypes from 'prop-types'
 
 const Error = (error) => {
-  
+
   if (error >= 500) {
     return (
       <div className='error-container'>
@@ -23,3 +24,7 @@ const Error = (error) => {
 }
 
 export default Error
+
+Error.propTypes = {
+  error: PropTypes.number
+}

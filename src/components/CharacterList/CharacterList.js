@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export default class CharacterList extends Component {
   constructor({ characters }) {
@@ -33,4 +34,8 @@ export default class CharacterList extends Component {
       )
     }
   }
+}
+
+CharacterList.propTypes = {
+  characters: PropTypes.array
 }

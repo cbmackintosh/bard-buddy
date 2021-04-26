@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PlayLine from '../PlayLine/PlayLine'
 import { numToRoms } from '../../helper-functions'
 import './SavedPassages.css'
+import PropTypes from 'prop-types'
 
 export default class SavedPassages extends Component {
   constructor() {
@@ -86,4 +87,8 @@ export default class SavedPassages extends Component {
       )
     }
   }
+}
+
+SavedPassages.propTypes = {
+  savedPassages: PropTypes.array
 }

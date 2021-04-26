@@ -4,6 +4,7 @@ import PlayText from '../PlayText/PlayText'
 import { numToRoms } from '../../helper-functions'
 import CharacterList from '../CharacterList/CharacterList'
 import Error from '../Error/Error'
+import PropTypes from 'prop-types'
 
 export default class Play extends Component {
   constructor({ play }) {
@@ -21,7 +22,7 @@ export default class Play extends Component {
   componentDidMount = () => {
     fetchPlayData(this.state.play)
     .then(data => this.setState({ characters: data.allCharacters, chapters: data.allChapters, fullTitle: data.fullTitle, text: data.fullText }))
-    .catch(error => this.setState({ error: error }))
+    .catch(error => this.setState({ error: parseInt(error.message) }))
   }
 
   compileDirectory = () => {
@@ -49,7 +50,8 @@ export default class Play extends Component {
 
   render = () => {
     if (this.state.error) {
-      return <Error error={this.state.error.message} />
+      console.log(this.state.error)
+      return <Error error={this.state.error} />
     } else {
       return (
         <div className="play-body">
@@ -61,3 +63,8 @@ export default class Play extends Component {
     }
   }
 }
+
+Play.propTypes = {
+  play: PropTypes.string
+}
+

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { numToRoms } from '../../helper-functions'
 import PlayLine from '../PlayLine/PlayLine'
 import './PlayText.css'
+import PropTypes from 'prop-types'
 
 export default class PlayText extends Component {
   constructor({ play, act, scene, fullText, characters, fullTitle }) {
@@ -48,4 +49,14 @@ export default class PlayText extends Component {
     }
   }
 
+}
+
+PlayText.propTypes = {
+  isExpanded: PropTypes.bool,
+  play: PropTypes.string,
+  act: PropTypes.number,
+  scene: PropTypes.number,
+  text: PropTypes.string,
+  characters: PropTypes.array,
+  fullTitle: PropTypes.string
 }

@@ -3,6 +3,7 @@ import { fetchAllPoetry } from '../../api-calls'
 import SonnetText from '../SonnetText/SonnetText'
 import PoemText from '../PoemText/PoemText'
 import Error from '../Error/Error'
+import PropTypes from 'prop-types'
 
 export default class SonnetsMenu extends Component {
   constructor() {
@@ -48,4 +49,10 @@ export default class SonnetsMenu extends Component {
       )
     }
   }
+}
+
+SonnetsMenu.propTypes = {
+  sonnets: PropTypes.array,
+  poems: PropTypes.array,
+  error: PropTypes.number
 }
