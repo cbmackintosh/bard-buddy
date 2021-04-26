@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import './Genre.css'
 
 const Genre = ({ genre }) => {
 
@@ -26,12 +27,14 @@ const Genre = ({ genre }) => {
   }, [])
 
   return (
-    <div>
+    <div className='genre-body'>
       <h1>{genreHeader}</h1>
-      {state.map(el => {
-        let url=`/${el.genre}/${el.playTitle}`
-        return <Link to={url} key={`play=${el.playTitle}`}><button>{el.fullTitle}</button></Link>
-      })}
+      <div className='genre-works'>
+        {state.map(el => {
+          let url=`/${el.genre}/${el.playTitle}`
+          return <Link to={url} key={`play=${el.playTitle}`}><button className='genre-work'>{el.fullTitle}</button></Link>
+        })}
+      </div>   
     </div>
   )
 

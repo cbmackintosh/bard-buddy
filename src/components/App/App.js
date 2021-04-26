@@ -14,8 +14,8 @@ const App = () => {
     <main className='app'>
       <h1 className='site-header'>Bard Buddy</h1>
       <nav>
-        <NavLink to='/'>HOME</NavLink>
-        <NavLink to='/saved-passages'>SAVED PASSAGES</NavLink>
+        <NavLink to='/' className='navlink'>HOME</NavLink>
+        <NavLink to='/saved-passages' className='navlink'>SAVED PASSAGES</NavLink>
       </nav>
       <Switch>
         <Route exact path='/' component={Home}/>

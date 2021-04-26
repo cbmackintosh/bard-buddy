@@ -9,3 +9,12 @@ nav {
   border-bottom: 1px solid black;
   padding-bottom: 10px;
 }
+
+.navlink {
+  text-decoration: none;
+  color: black;
+}
+
+.navlink:hover {
+  background-color: cyan;
+}
