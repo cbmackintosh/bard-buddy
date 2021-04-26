@@ -44,5 +44,6 @@ My primary goals for this project were 1. to demonstrate my proficiency with the
 - Improve passage deletion functionality on the saved passages display.
 - Improve UI, specifically padding and pagination
 - Improve accessibility for screen-readers: tabbing through play lines and saved passage cards
+- Improve screen-size responsiveness
 - Small bugs to fix: empty lines are sometimes still numbered
 
