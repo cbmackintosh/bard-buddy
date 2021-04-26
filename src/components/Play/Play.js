@@ -3,6 +3,7 @@ import { fetchPlayData } from '../../api-calls'
 import PlayText from '../PlayText/PlayText'
 import { numToRoms } from '../../helper-functions'
 import CharacterList from '../CharacterList/CharacterList'
+import Error from '../Error/Error'
 
 export default class Play extends Component {
   constructor({ play }) {
@@ -12,13 +13,15 @@ export default class Play extends Component {
       chapters: [],
       fullTitle: '',
       characters: [],
-      text: null
+      text: null,
+      error: null
     }
   }
 
   componentDidMount = () => {
     fetchPlayData(this.state.play)
     .then(data => this.setState({ characters: data.allCharacters, chapters: data.allChapters, fullTitle: data.fullTitle, text: data.fullText }))
+    .catch(error => this.setState({ error: error }))
   }
 
   compileDirectory = () => {
@@ -45,12 +48,16 @@ export default class Play extends Component {
   }
 
   render = () => {
-    return (
-      <div className="play-body">
-        <h1>{this.state.fullTitle}</h1>
-        {this.state.characters.length && <CharacterList characters={this.state.characters} />}
-        {this.compileDirectory()}
-      </div>
-    )
+    if (this.state.error) {
+      return <Error error={this.state.error.message} />
+    } else {
+      return (
+        <div className="play-body">
+          <h1>{this.state.fullTitle}</h1>
+          {this.state.characters.length && <CharacterList characters={this.state.characters} />}
+          {this.compileDirectory()}
+        </div>
+      )
+    }
   }
 }
