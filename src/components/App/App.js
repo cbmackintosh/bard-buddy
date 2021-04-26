@@ -13,6 +13,7 @@ const App = () => {
   return (
     <main className='app'>
       <h1 className='site-header'>Bard Buddy</h1>
+      <p className='sub-header'>THE COMPLETE WORKS OF WILLIAM SHAKESPEARE</p>
       <nav>
         <NavLink to='/' className='navlink'>HOME</NavLink>
         <NavLink to='/saved-passages' className='navlink'>SAVED PASSAGES</NavLink>

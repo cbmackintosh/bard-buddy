@@ -24,7 +24,7 @@ export default class HomeBanner extends Component {
           <p>"{this.state.quote}"</p>
           <p>{this.state.play}</p>
         </div>
-        <img className='portrait' src={shakespeare} />
+        <img className='portrait' src={shakespeare} alt='portrait of William Shakespeare'/>
       </div>
     )
   }

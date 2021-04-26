@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PlayLine from '../PlayLine/PlayLine'
 import { numToRoms } from '../../helper-functions'
+import './SavedPassages.css'
 
 export default class SavedPassages extends Component {
   constructor() {
@@ -42,8 +43,8 @@ export default class SavedPassages extends Component {
   compileSavedPassages() {
     return this.returnPassageGroupings().map(group => {
       return (
-        <div>
-          <h2>{this.compilePassageHeader(group[0].fullTitle, group[0].act, group[0].scene, group[0].lineNum, group[group.length - 1].lineNum)}</h2>
+        <div className='saved-passage'>
+          <h3>{this.compilePassageHeader(group[0].fullTitle, group[0].act, group[0].scene, group[0].lineNum, group[group.length - 1].lineNum)}</h3>
           {group.map(line => {
             return <PlayLine play={line.play} text={line.text} lineNum={line.lineNum} character={line.character} act={line.act} scene={line.scene} fullTitle={line.fullTitle} />
           })}
@@ -77,8 +78,10 @@ export default class SavedPassages extends Component {
     } else {
       return (
         <div>
-          <h2>Your saved passages:</h2>
-          {this.compileSavedPassages()}
+          <h1>Your saved passages:</h1>
+          <div className='saved-passage-container'>
+            {this.compileSavedPassages()}
+          </div>
         </div>
       )
     }
