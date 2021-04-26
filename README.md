@@ -42,3 +42,7 @@ My primary goals for this project were 1. to demonstrate my proficiency with the
 - Expand the saved passages functionality to incorporate note-taking, adding tags to denote literary devices, etc.
 - Implement a search bar from the home page to quickly find specific terms in the entire database.
 - Improve passage deletion functionality on the saved passages display.
+- Improve UI, specifically padding and pagination
+- Improve accessibility for screen-readers: tabbing through play lines and saved passage cards
+- Small bugs to fix: empty lines are sometimes still numbered
+
