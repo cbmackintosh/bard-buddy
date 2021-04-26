@@ -19,6 +19,9 @@ The App was built with React and consumes an Express API which I built specifica
 https://github.com/cbmackintosh/BardBuddy-API
 
 ## Installation Instructions:
+* ...
+* ...
+* ...
 
 ## Technologies Used:
 
@@ -29,6 +32,10 @@ https://github.com/cbmackintosh/BardBuddy-API
 * ![Webpack](https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black)
 * ![Cypress](https://img.shields.io/badge/cypress-04C38E.svg?&style=for-the-badge&logo=cypress&logoColor=white)
 * ![Node](https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white)
+
+## Learning goals and project reflection:
+
+My primary goals for this project were 1. to demonstrate my proficiency with the React framework and 2. gain experience in working with a large amount of data. The project turned out to be far more complex than I originally anticipated, and was complicated significantly by my decision to build my own API. With just six days to complete this project, I definitely over-extended myself and learned some hard lessons about project scoping and keeping goals simple and achievable. While I don't think this project represents my best work, I'm still immensely proud that the final product functions as well as it does. I'm also proud that I was able to build an Express server using a language I had no prior experience with.
 
 ## Future iterations:
 
