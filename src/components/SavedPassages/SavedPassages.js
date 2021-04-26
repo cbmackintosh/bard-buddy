@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PlayLine from '../PlayLine/PlayLine'
+import { numToRoms } from '../../helper-functions'
 
 export default class SavedPassages extends Component {
   constructor() {
@@ -16,13 +17,38 @@ export default class SavedPassages extends Component {
     }
   }
 
+  returnPassageGroupings() {
+    let representedWorks = []
+    this.state.savedPassages.forEach(el => !representedWorks.includes(el.play) ? representedWorks.push(el.play) : null)
+    const groupings = representedWorks.map(work => {
+      return this.state.savedPassages.filter(el => el.play === work).sort((a, b) => a.lineNum - b.lineNum)
+    })
+    let finalGroupings = []
+    groupings.forEach(group => {
+      let workingArray = []
+      for (var i = 0; i < group.length; i++) {
+        if (group[i + 1] && group[i + 1].lineNum - group[i].lineNum === 1) {
+          workingArray.push(group[i])
+        } else {
+          workingArray.push(group[i])
+          finalGroupings.push(workingArray)
+          workingArray = []
+        }
+      }
+    })
+    return finalGroupings
+  }
+
   compileSavedPassages() {
-    return this.state.savedPassages.map(line => {
-      let play = line.play
-      let text = line.text
-      let lineNum = line.lineNum
-      let character = line.character
-      return <PlayLine play={play} text={text} lineNum={lineNum} character={character} />
+    return this.returnPassageGroupings().map(group => {
+      return (
+        <div>
+          <h2>{group[0].fullTitle}: Act {numToRoms(group[0].act)}, scene {numToRoms(group[0].scene, true)}, lines {group[0].lineNum}-{group[group.length - 1].lineNum}</h2>
+          {group.map(line => {
+            return <PlayLine play={line.play} text={line.text} lineNum={line.lineNum} character={line.character} act={line.act} scene={line.scene} fullTitle={line.fullTitle} />
+          })}
+        </div>
+      )
     })
   }
 

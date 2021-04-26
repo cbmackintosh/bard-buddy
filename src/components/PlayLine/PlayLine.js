@@ -2,14 +2,17 @@ import React, { Component } from 'react'
 import './PlayLine.css'
 
 export default class PlayLine extends Component {
-  constructor({ play, text, lineNum, character }) {
+  constructor({ play, text, lineNum, character, act, scene, fullTitle }) {
     super()
     this.state = {
       play: play,
       text: text,
       lineNum: lineNum,
       character: character,
-      isSaved: null
+      isSaved: null,
+      act: act,
+      scene: scene,
+      fullTitle: fullTitle
     }
   }
 
@@ -23,7 +26,6 @@ export default class PlayLine extends Component {
 
   delete = () => {
     let storage = JSON.parse(localStorage.getItem('bard-buddy'))
-    console.log(storage.indexOf(this.state))
     storage.splice(storage.indexOf(storage.find(item => item.text === this.state.text)), 1)
     localStorage.setItem('bard-buddy', JSON.stringify(storage))
     this.setState({ isSaved: false })
@@ -31,13 +33,13 @@ export default class PlayLine extends Component {
 
   save = () => {
     if (localStorage.getItem('bard-buddy')) {
+      this.setState({ isSaved: true })
       let storage = JSON.parse(localStorage.getItem('bard-buddy'))
       storage.push(this.state)
       localStorage.setItem('bard-buddy', JSON.stringify(storage))
-      this.setState({ isSaved: true })
     } else {
-      localStorage.setItem('bard-buddy', JSON.stringify([this.state]))
       this.setState({ isSaved: true })
+      localStorage.setItem('bard-buddy', JSON.stringify([this.state]))
     }
   }
 
