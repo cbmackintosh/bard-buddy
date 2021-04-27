@@ -20,7 +20,7 @@ const Genre = ({ genre }) => {
       const data = await response.json()
       setState(data)
     } catch (error) {
-      setError(error.message)
+      setError(error)
     }
   }
 
@@ -31,7 +31,7 @@ const Genre = ({ genre }) => {
   return (
     <div className='genre-body'>
       <h1>{genreHeader}</h1>
-      {error && <Error />}
+      {error && <Error error={error} />}
       <div className='genre-works'>
         {state.map(el => {
           let url=`/${el.genre}/${el.playTitle}`
