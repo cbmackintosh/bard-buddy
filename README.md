@@ -19,9 +19,9 @@ The App was built with React and consumes an Express API which I built specifica
 https://github.com/cbmackintosh/BardBuddy-API
 
 ## Installation Instructions:
-* ...
-* ...
-* ...
+* Clone this repository `git clone git@github.com:cbmackintosh/bard-buddy.git`
+* `cd` into the directory and run `npm install`
+* run `npm start` to lanch the app in your browser
 
 ## Technologies Used:
 
