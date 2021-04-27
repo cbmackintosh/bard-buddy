@@ -50,7 +50,6 @@ export default class Play extends Component {
 
   render = () => {
     if (this.state.error) {
-      console.log(this.state.error)
       return <Error error={this.state.error} />
     } else {
       return (
@@ -65,6 +64,11 @@ export default class Play extends Component {
 }
 
 Play.propTypes = {
-  play: PropTypes.string
+  play: PropTypes.string,
+  chapters: PropTypes.array,
+  fullTitle: PropTypes.string,
+  characters: PropTypes.array,
+  text: PropTypes.string,
+  error: PropTypes.number
 }
 
