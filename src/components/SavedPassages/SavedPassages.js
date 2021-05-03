@@ -41,6 +41,9 @@ export default class SavedPassages extends Component {
     return finalGroupings
   }
 
+  //savedPassages.reduce
+  //Object.keys
+
   compileSavedPassages() {
     return this.returnPassageGroupings().map(group => {
       return (
